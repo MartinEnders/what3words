@@ -5,7 +5,7 @@ Implementation of the api-functions described at http://developer.what3words.com
 
 Status
 ---------
-Work in progress
+Work in progress (2016-02-24)
 
 Existing functions:
 
@@ -89,7 +89,7 @@ WHAT3WORDS> (position-to-three-words 51.484463 -0.195405 :corners t)
 "en"
 ((51484449/1000000 -97713/500000) (12871119/250000 -195383/1000000))
 
-WHAT3WORDS> (format t "~{~A~%~}"(position-to-three-words 51.484463 -0.195405))
+WHAT3WORDS> (format t "~{~A~%~}" (position-to-three-words 51.484463 -0.195405))
 prom
 cape
 pump
