@@ -6,7 +6,7 @@
   :description "Describe what3words here"
   :author "Martin R. Enders"
   :license "BSD"
-  :depends-on (#:drakma)
+  :depends-on (#:drakma #:jsown)
   :serial t
   :components ((:file "package")
                (:file "what3words")))
