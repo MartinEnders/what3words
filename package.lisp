@@ -6,5 +6,6 @@
   (:use #:cl)
   (:export #:get-languages
 	   #:position-to-three-words
+	   #:three-words-to-position
 	   #:*key*))
 

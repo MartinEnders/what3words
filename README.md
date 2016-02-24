@@ -7,6 +7,20 @@ Status
 ---------
 Work in progress
 
+Existing functions:
+
+* three-words-to-position
+* position-to-three-words
+* get-languages
+
+Currently there is no exception handling implemented.
+
+
+
+Dependencies
+------------
+* drakma
+* jsown
 
 Remarks
 -------
@@ -23,8 +37,30 @@ You can pass the key to the functions through the ```:key``` parameter or set th
 Convert 3 words to position
 ----------------------------
 
-TODO
+Examples:
 
+three-words-to-position returns multiple values (coordinates, type, 3-words, corners)
+
+```lisp
+WHAT3WORDS> (three-words-to-position (list "prom" "cape" "pump"))
+(51484463/1000000 -39081/200000)
+"3 words"
+("prom" "cape" "pump")
+"en"
+NIL
+WHAT3WORDS> (three-words-to-position (list "prom" "cape" "pump") :language "de")
+(51484463/1000000 -39081/200000)
+"3 words"
+("scholle" "lohn" "gleichheit") ;; Translation of prom cape pump
+"de"
+NIL
+WHAT3WORDS> (three-words-to-position (list "prom" "cape" "pump") :corners t)
+(51484463/1000000 -39081/200000)
+"3 words"
+("prom" "cape" "pump")
+"en"
+((51484449/1000000 -97713/500000) (12871119/250000 -195383/1000000))
+```
 
 
 Convert position to 3 words
