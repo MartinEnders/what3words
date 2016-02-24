@@ -49,6 +49,9 @@ WHAT3WORDS> (format t "~{~A~%~}"(position-to-three-words 51.484463 -0.195405))
 prom
 cape
 pump
+
+WHAT3WORDS> (format t "https://map.what3words.com/~{~A~^+~}" (position-to-three-words 51.484463 -0.195405))
+https://map.what3words.com/prom+cape+pump
 ```
 
 
