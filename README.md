@@ -3,6 +3,14 @@ Common Lisp API for http://what3words.com/
 
 Implementation of the api-functions described at http://developer.what3words.com/api/
 
+Status
+---------
+Work in progress
+
+
+Remarks
+-------
+
 To try the examples you have to 'sign up for API' on http://developer.what3words.com/ to get your API-key
 
 You can pass the key to the functions through the ```:key``` parameter or set the *key* variable:
@@ -72,10 +80,6 @@ WHAT3WORDS> (get-languages :codes-only nil)
  ("pt" . "Português (beta)") ("ru" . "Русский (beta)")
  ("sv" . "Svenska (beta)") ("sw" . "Kiswahili (beta)") ("tr" . "Türkçe (beta)"))
  ```
-
-Status
----------
-Work in progress
 
 Development environment
 -----------------------
