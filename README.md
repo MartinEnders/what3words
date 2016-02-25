@@ -3,10 +3,15 @@ Common Lisp API for http://what3words.com/
 
 Implementation of the api-functions described at http://developer.what3words.com/api/
 
+Hello World example
+----------------------
+Load library and run:
+```lisp
+(position-to-three-words 51.484463 -0.195405 :key "your-w3w-key")
+```
+
 Status
 ---------
-Work in progress (2016-02-25)
-
 Existing functions:
 
 * three-words-to-position
