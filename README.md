@@ -5,7 +5,7 @@ Implementation of the api-functions described at http://developer.what3words.com
 
 Status
 ---------
-Work in progress (2016-02-24)
+Work in progress (2016-02-25)
 
 Existing functions:
 
@@ -13,14 +13,11 @@ Existing functions:
 * position-to-three-words
 * get-languages
 
-Currently there is no exception handling implemented.
-
-
 
 Dependencies
 ------------
-* drakma
-* jsown
+* drakma ```(ql:quickload :drakma)```
+* jsown ```(ql:quickload :jsown)```
 
 Remarks
 -------
@@ -30,12 +27,29 @@ To try the examples you have to 'sign up for API' on http://developer.what3words
 You can pass the key to the functions through the ```:key``` parameter or set the *key* variable:
 
 ```lisp
-(setf what3words:*key* "BLABLABLA")
+(setf what3words:*key* "your-w3w-key")
 ```
 
 
 Convert 3 words to position
 ----------------------------
+
+```lisp
+(defun three-words-to-position (three-words &key (language nil) (corners nil) (key *key*) (raise-error nil))
+```
+* `three-words` List of three words
+* `language` set to NIL (default) for default language or set language-code as provided from `get-languages`; use only if you want to return 3 words in a different language then the language of the 3 words you submitted (can be used for translation of '3 words')
+* `corners` set to NIL (default)for the center-coordinates of the w3w square, set to true for the southwest and northeast coordinates of the square
+* `key` your w3w api-key, `key` is set to what3words:*key* by default
+* `raise-error` set to true if you want to raise errors based on the error messages from w3w, set to NIL (default) to get w3w error messages as return value of the function
+
+returns (multiple return values):
+* three words (list)
+* position (list),
+* language (language-code, string)
+* corners (positions of southwest and northeast corners or nil)
+
+
 
 Examples:
 
@@ -120,3 +134,7 @@ WHAT3WORDS> (get-languages :codes-only nil)
 Development environment
 -----------------------
 SBCL on Debian GNU/Linux
+
+License
+----------
+Please see the file LICENSE in the distribution.
