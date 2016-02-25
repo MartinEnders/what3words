@@ -10,5 +10,6 @@
   :depends-on (#:drakma #:jsown)
   :serial t
   :components ((:file "package")
-               (:file "what3words")))
+               (:file "what3words")
+	       (:file "what3words-test")))
 

@@ -8,5 +8,13 @@
   (:export #:get-languages
 	   #:position-to-three-words
 	   #:three-words-to-position
-	   #:*key*))
+	   #:*key*
+	   #:w3w-api-error
+	   #:text
+	   #:data))
+
+
+(defpackage #:what3words-test
+  (:use #:cl #:what3words)
+  (:export #:test))
 
