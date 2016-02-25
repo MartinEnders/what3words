@@ -28,6 +28,12 @@ Run the following function after loading the library:
 (what3words-test:test "your-w3w-key")
 ```
 
+Works on:
+* SBCL on Debian GNU/Linux
+* CCl on Debian GNU/Linux
+
+
+
 
 Remarks
 -------
@@ -210,9 +216,8 @@ I use `drakma` for the https requests and `jsown` for JSON-parsing so if one of 
 Development environment
 -----------------------
 
-Works no:
 * SBCL on Debian GNU/Linux
-* CCl on Debian GNU/Linux
+
 
 License
 ----------
