@@ -209,7 +209,10 @@ I use `drakma` for the https requests and `jsown` for JSON-parsing so if one of 
 
 Development environment
 -----------------------
-SBCL on Debian GNU/Linux
+
+Works no:
+* SBCL on Debian GNU/Linux
+* CCl on Debian GNU/Linux
 
 License
 ----------
