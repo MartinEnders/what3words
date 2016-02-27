@@ -13,6 +13,8 @@
 (defparameter *position-url* "https://api.what3words.com/position")
 (defparameter *w3w-url* "https://api.what3words.com/w3w")
 
+(setf drakma:*drakma-default-external-format* :utf-8)
+
 (define-condition w3w-api-error (error)
   ((text :initarg :text :reader text)
    (data :initarg :data :reader data)))
