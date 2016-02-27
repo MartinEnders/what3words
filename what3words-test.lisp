@@ -50,6 +50,7 @@ Error message: ~S~%" (text e) (data e))))
 
     (format t "~{
 :RAISE-ERROR nil
+Return value:  ~S
 Error ID:      ~S
 Error Message: ~S~}~%" (multiple-value-list (three-words-to-position (list "prom" "cape" "pump") :raise-error nil)))))
 

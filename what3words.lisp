@@ -23,7 +23,7 @@
 	(w3w-error-msg (jsown:val data "message")))
     (if raise-error
 	(error 'w3w-api-error :text (format nil "w3w error [~A]: ~A" w3w-error-id w3w-error-msg) :data (list w3w-error-id w3w-error-msg))
-	(values w3w-error-id w3w-error-msg))))
+	(values nil w3w-error-id w3w-error-msg))))
 
 (defun three-words-to-position (three-words &key (language nil) (corners nil) (key *key*) (raise-error nil))
   "three-words: list of three words or string of three words with dots `.` 
@@ -32,7 +32,7 @@ corners: true for the coordinates of the w3w square, false for the southwest and
 key: api-key
 
 multiple-return-values: three words (list), position (list), type(string) language (language-code, string), corners (positions of southwest and northeast corners or nil)
-raise-error: if true raise an error, if nil then return the errormessage from w3w
+raise-error: if true raise an error if one occurs, if nil then return nil and the errormessage from w3w as multiple return values
 "
   (let* ((w3w-words (if (stringp three-words)
 			three-words
@@ -64,7 +64,7 @@ corners: true for the coordinates of the w3w square, false for the southwest and
 key: api-key
 
 multiple-return-values: three words (list), position (list), language (language-code, string), corners (positions of southwest and northeast corners or nil)
-raise-error: if true raise an error, if nil then return the errormessage from w3w
+raise-error: if true raise an error if one occurs, if nil then return nil and the errormessage from w3w as multiple return values
 "
   (let* ((w3w-position (format nil "~A,~A" latitude longitude))
 	 (w3w-corners (if corners "true" "false"))
@@ -89,7 +89,7 @@ raise-error: if true raise an error, if nil then return the errormessage from w3
 (defun get-languages (&key (codes-only t) (key *key*) (raise-error nil))
   "codes-only: if true return a list of language codes, if nil return a-list of language-codes and language-names
 key: api-key
-raise-error: if true raise an error, if nil then return the errormessage from w3w
+raise-error: if true raise an error if one occurs, if nil then return nil and the errormessage from w3w as multiple return values
 "
 
   (let* ((json-string (flexi-streams:octets-to-string

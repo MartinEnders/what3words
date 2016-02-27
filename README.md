@@ -206,10 +206,12 @@ ERROR-HANDLING
 ; compiling (DEFPACKAGE #:WHAT3WORDS ...)
 ```
 
-If `raise-error` parameter is NIL (default value) then the error-message from the w3w API is returned as mulitple values (id and description)
+If `raise-error` parameter is NIL (default value) then the error-message from the w3w API is returned as mulitple values (nil, id and description).
+So if `raise-error` is NIL then the functions return NIL if an error message is submitted from what3words.
 ```lisp
 WHAT3WORDS> (let ((*key* "testtest"))
 	      (get-languages :raise-error nil))
+NIL	
 "X1"
 "Missing or invalid key"
 WHAT3WORDS> 
