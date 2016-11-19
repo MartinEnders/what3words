@@ -1,7 +1,7 @@
 Common Lisp API for http://what3words.com/
 =========================================
 
-Implementation of the api-functions described at http://developer.what3words.com/api/
+Implementation of the api-functions described at https://docs.what3words.com/api/v2/
 
 Hello World example
 ----------------------
@@ -18,11 +18,16 @@ Existing functions:
 * position-to-three-words
 * get-languages
 
+2016-11-19
+* Modified existing functions to work with the v2 api of w3w
+* The v1 api of w3w will be disabled on end of November according to the w3w website.
+
 
 Dependencies
 ------------
 * drakma ```(ql:quickload :drakma)```
 * jsown ```(ql:quickload :jsown)```
+* cl-ppcre ```(ql:quickload :cl-ppcre)``` (should be already loaded with drakma)
 
 
 Test
@@ -72,7 +77,7 @@ returns (multiple return values):
 * language (language-code, string)
 * corners (positions of southwest and northeast corners or nil)
 
-API-URL: https://api.what3words.com/w3w
+API-URL: https://api.what3words.com/v2/forward
 
 Examples:
 
@@ -121,7 +126,7 @@ returns (multiple return values):
 
 
 
-API-URL: https://api.what3words.com/position
+API-URL: https://api.what3words.com/v2/reverse
 
 Examples:
 
@@ -168,7 +173,7 @@ Get list of available 3 word languages
 * `key` your w3w api-key, `key` is set to what3words:*key* by default
 * `raise-error` set to true if you want to raise errors based on the error messages from w3w, set to NIL (default) to get w3w error messages as return value of the function
 
-API-URL: https://api.what3words.com/get-languages
+API-URL: https://api.what3words.com/v2/languages
 
 ```lisp
 WHAT3WORDS> (get-languages)

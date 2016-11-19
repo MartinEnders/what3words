@@ -7,7 +7,7 @@
   :description "Describe what3words here"
   :author "Martin R. Enders"
   :license "BSD"
-  :depends-on (#:drakma #:jsown)
+  :depends-on (#:drakma #:jsown #:cl-ppcre)
   :serial t
   :components ((:file "package")
                (:file "what3words")

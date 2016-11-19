@@ -27,6 +27,7 @@ corners:     ~A~%~}~%" output))
 			  (multiple-value-list (position-to-three-words 51.484463 -0.195405 :corners t))))
       (format t "~{
 three words: ~A
+type:        ~A
 position:    ~A
 language:    ~A
 corners:     ~A~%~}~%" output))
@@ -36,8 +37,9 @@ corners:     ~A~%~}~%" output))
 			  (multiple-value-list (get-languages :codes-only nil))))
       (format t "~{languages: ~A~%~}" output)))
   
-  (format t "Test API-error-message handling~%")
+  (format t "Test API-error-message handling - invalid key test~%")
   (format t "---------------------------------~%")
+  
   (let ((*key* "invalid-key-test"))
     
     (handler-case
@@ -52,6 +54,44 @@ Error message: ~S~%" (text e) (data e))))
 :RAISE-ERROR nil
 Return value:  ~S
 Error ID:      ~S
-Error Message: ~S~}~%" (multiple-value-list (three-words-to-position (list "prom" "cape" "pump") :raise-error nil)))))
+Error Message: ~S~%~}~%" (multiple-value-list (three-words-to-position (list "prom" "cape" "pump") :raise-error nil))))
 
+  (format t "Test API-error-message handling - invalid what 3 words to position~%")
+  (format t "---------------------------------~%")
+  
+  (let ((*key* key))
+    
+    (handler-case
+	(three-words-to-position (list "prom" "cape" "pumppp") :raise-error t)
+      (w3w-api-error (e) 
+	(format t "
+:RAISE-ERROR t
+Error ID:      ~S
+Error message: ~S~%" (text e) (data e))))
+
+    (format t "~{
+:RAISE-ERROR nil
+Return value:  ~S
+Error ID:      ~S
+Error Message: ~S~}~%" (multiple-value-list (three-words-to-position (list "prom" "cape" "pumppp") :raise-error nil))))
+
+
+    (format t "Test API-err~%or-message handling - invalid position to what3words~%")
+  (format t "---------------------------------~%")
+  
+  (let ((*key* key))
+    
+    (handler-case
+	(position-to-three-words "abc" -0.195405 :raise-error t)
+      (w3w-api-error (e) 
+	(format t "
+:RAISE-ERROR t
+Error ID:      ~S
+Error message: ~S~%" (text e) (data e))))
+
+    (format t "~{
+:RAISE-ERROR nil
+Return value:  ~S
+Error ID:      ~S
+Error Message: ~S~}~%" (multiple-value-list 	(position-to-three-words "abc" -0.195405 :raise-error nil)))))
   
